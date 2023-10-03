@@ -1,42 +1,48 @@
 main {
-	display: flex;
+  display: flex;
 }
 
 .rfm-marquee-container {
-	width: 100%;
+  width: 100%;
 }
 
-.ecom-index-text {
-	white-space: nowrap;
-	padding: 0 17px;
+.tw-index-text {
+  white-space: nowrap;
+  padding: 0 17px;
 }
 
-.ticker-change {
-	display: flex;
-	align-items: center;
+.tw-ticker {
+  display: flex;
+  gap: 5px;
+  margin: 0 0 0 7px;
 }
 
-.ticker-change-chevron {
-	font-size: 20px;
-	margin-right: 7px;
-	margin-left: 7px;
+.tw-ticker-change {
+  display: flex;
+  align-items: center;
 }
 
-.chevron::before {
-	border-style: solid;
-	border-width: 1px 1px 0 0;
-	content: '';
-	display: inline-block;
-	height: 0.15em;
-	left: 0.15em;
-	position: relative;
-	top: 0.55em;
-	transform: rotate(-45deg);
-	vertical-align: top;
-	width: 0.15em;
+.tw-ticker-change-chevron {
+  font-size: 20px;
+  margin-right: 7px;
+  margin-left: 7px;
 }
 
-.chevron.bottom:before {
-	top: .475em;
-	transform: rotate(135deg);
+.tw-chevron::before {
+  border-style: solid;
+  border-width: 1px 1px 0 0;
+  content: '';
+  display: inline-block;
+  height: 0.15em;
+  left: 0.15em;
+  position: relative;
+  top: 0.55em;
+  transform: rotate(-45deg);
+  vertical-align: top;
+  width: 0.15em;
+}
+
+.tw-chevron.bottom:before {
+  top: 0.475em;
+  transform: rotate(135deg);
 }

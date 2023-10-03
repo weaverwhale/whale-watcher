@@ -30,21 +30,24 @@ function App() {
 
   return (
     <main>
-      <p className="ecom-index-text">eCommerce Index (last 4 weeks):</p>
+      <p className="tw-index-text">Whale Watcher</p>
       {data && data.total && (
         <Marquee pauseOnHover={true}>
           {Object.keys(data.total).map((key: string) => (
-            <p style={{ display: 'flex', gap: 5, margin: 0, marginRight: 7 }}>
+            <p className="tw-ticker">
               {formatKey(key)} • {!key.includes('ctr') && !key.includes('roas') && '$'}
-              {data.total[key]}{key.includes('ctr') && '%'}
+              {data.total[key]}
+              {key.includes('ctr') && '%'}
               <span
-                className="ticker-change"
+                className="tw-ticker-change"
                 style={{
                   color: data.compression[key] < 0 ? 'rgb(252, 10, 84)' : 'rgb(22, 206, 185)',
                 }}
               >
-                <span className="ticker-change-chevron">
-                  <span className={'chevron ' + (data.compression[key] >= 0 ? 'top' : 'bottom')}></span>
+                <span className="tw-ticker-change-chevron">
+                  <span
+                    className={'tw-chevron ' + (data.compression[key] >= 0 ? 'top' : 'bottom')}
+                  ></span>
                 </span>
                 {data.compression[key]}%
               </span>
