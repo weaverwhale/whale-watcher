@@ -1,6 +1,6 @@
 # Whale Watcher Extension
 
-> a chrome extension tools built with Vite + React, and Manifest v3
+> Real-time advertising trends from 10,000+ Shopify stores.
 
 ## &#9881;&#65039; Installing
 
