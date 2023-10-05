@@ -34,6 +34,7 @@ function formatImage(key: string) {
 
 function App() {
   const [data, setData] = useState<any>({})
+  const [isPopout, setIsPopout] = useState<boolean>(!!window.location.search.includes('popout'))
 
   useEffect(() => {
     if (import.meta.env.DEV) {
@@ -45,6 +46,18 @@ function App() {
     }
   }, [])
 
+  const addToActiveTab = () => {
+    const createPopout = {
+      url: 'popup.html?popout=true',
+      type: 'popup',
+      height: 80,
+    }
+    chrome.windows.create(createPopout as any, (window: Window | any) => {
+      setIsPopout(true)
+    })
+    window.close()
+  }
+
   return (
     <main>
       <div className="ww-index-desc">
@@ -53,13 +66,18 @@ function App() {
           <p className="ww-index-text">Whale Watcher</p>
         </div>
         <div className="ww-index-text ww-small ww-wrap">
-          Based on real-time performance of 10k+ stores over the past 4 weeks
+          Based on the performance of 10k+ stores over the past 4 weeks
         </div>
+        {!isPopout && (
+          <a onClick={addToActiveTab} className="ww-small ww-index-text ww-index-link">
+            Pop out?
+          </a>
+        )}
       </div>
       {data && data.total && (
         <Marquee pauseOnHover={true}>
           {Object.keys(data.total).map((key: string) => (
-            <p className="tw-ticker">
+            <p className="tw-ticker" key={key}>
               <img src={formatImage(key)} /> {formatKey(key)} •{' '}
               {!key.includes('ctr') && !key.includes('roas') && '$'}
               {data.total[key]}

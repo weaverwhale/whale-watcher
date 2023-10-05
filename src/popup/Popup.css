@@ -15,11 +15,11 @@ main {
 }
 
 .ww-index-desc {
-  padding: 15px 17px;
-  max-width: 125px;
+  padding: 8px;
 }
 
 .ww-index-text {
+  display: block;
   padding: 0;
   margin: 0;
   line-height: 1.1;
@@ -38,6 +38,10 @@ main {
   gap: 5px;
   margin-bottom: 3px;
   font-weight: 600;
+}
+
+.ww-index-link {
+  margin-top: 3px;
 }
 
 .tw-ticker {
