@@ -63,14 +63,14 @@ function App() {
       <div className="ww-index-desc">
         <div className="ww-desc-top">
           <img src={Whale} />
-          <p className="ww-index-text">Whale Watcher</p>
+          <p className="ww-index-text ww-index-text-header">Whale Watcher</p>
         </div>
         <div className="ww-index-text ww-small ww-wrap">
           Based on the performance of 10k+ stores over the past 4 weeks
         </div>
         {!isPopout && (
           <a onClick={addToActiveTab} className="ww-small ww-index-text ww-index-link">
-            Pop out?
+            Pop out window?
           </a>
         )}
       </div>

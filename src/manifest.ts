@@ -3,7 +3,7 @@ import { defineManifest } from '@crxjs/vite-plugin'
 export default defineManifest({
   name: 'Whale Watcher',
   description: 'Real-time advertising trends from 10,000+ Shopify stores.',
-  version: '0.0.2',
+  version: '0.0.3',
   manifest_version: 3,
   icons: {
     '16': 'img/logo.png',

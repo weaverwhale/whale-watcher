@@ -16,6 +16,11 @@ main {
 
 .ww-index-desc {
   padding: 8px;
+  max-width: 150px;
+}
+
+.ww-index-text-header {
+  font-size: 15px;
 }
 
 .ww-index-text {
