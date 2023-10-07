@@ -15,16 +15,6 @@ export default defineManifest({
     default_popup: 'popup.html',
     default_icon: 'img/logo-128.png',
   },
-  background: {
-    service_worker: 'src/background/index.ts',
-    type: 'module',
-  },
-  content_scripts: [
-    {
-      matches: ['http://*/*', 'https://*/*'],
-      js: ['src/content/index.ts'],
-    },
-  ],
   web_accessible_resources: [
     {
       resources: ['img/logo-16.png', 'img/logo-32.png', 'img/logo-60.png', 'img/logo-128.png'],
