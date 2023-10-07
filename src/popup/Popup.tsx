@@ -50,7 +50,7 @@ function App() {
     const createPopout = {
       url: 'popup.html?popout=true',
       type: 'popup',
-      height: 80,
+      height: 85,
     }
     chrome.windows.create(createPopout as any, (window: Window | any) => {
       setIsPopout(true)
