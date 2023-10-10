@@ -61,7 +61,7 @@ function App() {
       setData(TestData)
     } else {
       fetch(
-        'https://staging.api.triplewhale.com/api/v2/bi/get-benchmarks-for-marketing?requester=triplewhale',
+        'https://api.triplewhale.com/api/v2/bi/get-benchmarks-for-marketing?requester=triplewhale',
       )
         .then((res) => res.json())
         .then((res) => setData(res))
