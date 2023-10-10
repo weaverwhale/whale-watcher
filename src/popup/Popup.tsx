@@ -57,7 +57,7 @@ function App() {
   const [speed, setSpeed] = useState<number>(50)
 
   useEffect(() => {
-    if (isDev) {
+    if (!isDev) {
       setData(TestData)
     } else {
       fetch(
@@ -115,7 +115,7 @@ function App() {
                     className={'tw-chevron ' + (data.compression[key] >= 0 ? 'top' : 'bottom')}
                   ></span>
                 </span>
-                {data.compression[key]}%
+                {data.compression[key].replace('.00', '')}%
               </span>
               &nbsp;
             </p>
