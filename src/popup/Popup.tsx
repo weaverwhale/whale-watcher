@@ -57,7 +57,7 @@ function App() {
   const [speed, setSpeed] = useState<number>(50)
 
   useEffect(() => {
-    if (!isDev) {
+    if (isDev) {
       setData(TestData)
     } else {
       fetch(
@@ -65,6 +65,10 @@ function App() {
       )
         .then((res) => res.json())
         .then((res) => setData(res))
+        .catch((err) => {
+          console.log(err)
+          setData(TestData)
+        })
     }
   }, [])
 
