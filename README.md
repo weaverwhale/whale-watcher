@@ -2,6 +2,8 @@
 
 > Real-time advertising trends from 10,000+ Shopify stores.
 
+Chrome Store Listing: https://chrome.google.com/webstore/detail/whale-watcher/ibaihilhjmblnoigklboggdkimmcgjpc
+
 ## &#9881;&#65039; Installing
 
 1. Check if your `Node.js` version is >= **18**.
