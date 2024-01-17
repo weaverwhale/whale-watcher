@@ -2,21 +2,23 @@ import { useState, useEffect } from 'react'
 import Marquee from 'react-fast-marquee'
 import TestData from './data'
 
-import Whale from '../assets/whale.svg'
-import Blended from '../assets/blended.svg'
+import AMAZON from '../assets/amazon.svg'
+import BING from '../assets/bing.svg'
+import BLENDED from '../assets/blended.svg'
 import FACEBOOK from '../assets/facebook.svg'
 import GOOGLE from '../assets/google.svg'
-import TIKTOK from '../assets/tiktok.svg'
-import TWITTER from '../assets/twitter.svg'
 import PINTEREST from '../assets/pinterest.svg'
 import SNAPCHAT from '../assets/snapchat.svg'
+import TIKTOK from '../assets/tiktok.svg'
+import TWITTER from '../assets/twitter.svg'
+import WHALE from '../assets/whale.svg'
 
 import './Popup.css'
 
 const isDev = import.meta.env.DEV
 
 function formatKey(key: string) {
-  return key
+  const word = key
     .replace('_', ' ')
     .replace('fb', '')
     .replace('ga', '')
@@ -26,29 +28,40 @@ function formatKey(key: string) {
     .replace('sc', '')
     .replace('roas', 'ROAS')
     .replace('cpm', 'CPM')
+    .replace('cpa', 'CPA')
     .replace('ctr', 'CTR')
     .replace('cpc', 'CPC')
     .replace('blended', 'Blended')
+
+  return word.charAt(0).toUpperCase() + word.slice(1)
 }
 
 function formatImage(key: string) {
-  if (key.includes('fb')) {
-    return FACEBOOK
-  } else if (key.includes('ga')) {
-    return GOOGLE
-  } else if (key.includes('tt')) {
-    return TIKTOK
-  } else if (key.includes('tw')) {
-    return TWITTER
-  } else if (key.includes('pin')) {
-    return PINTEREST
-  } else if (key.includes('sc')) {
-    return SNAPCHAT
+  if (key.includes('amazon')) {
+    return AMAZON
+  } else if (key.includes('bing')) {
+    return BING
   } else if (key.includes('blended')) {
-    return Blended
+    return BLENDED
+  } else if (key.includes('fb') || key.includes('facebook')) {
+    return FACEBOOK
+  } else if (key.includes('ga') || key.includes('google')) {
+    return GOOGLE
+  } else if (key.includes('pin') || key.includes('pinterest')) {
+    return PINTEREST
+  } else if (key.includes('sc') || key.includes('snapchat')) {
+    return SNAPCHAT
+  } else if (key.includes('tt') || key.includes('tiktok')) {
+    return TIKTOK
+  } else if (key.includes('tw') || key.includes('twitter')) {
+    return TWITTER
   } else {
-    return Whale
+    return WHALE
   }
+}
+
+function formatNumber(num: number) {
+  return num ? num.toFixed(2).replace('.00', '') : 0
 }
 
 function App() {
@@ -88,7 +101,7 @@ function App() {
     <main>
       <div className="ww-index-desc">
         <div className="ww-desc-top">
-          <img src={Whale} />
+          <img src={WHALE} />
           <p className="ww-index-text ww-index-text-header">Whale Watcher</p>
         </div>
         <div className="ww-index-text ww-small ww-wrap">
@@ -106,7 +119,7 @@ function App() {
             <p className="tw-ticker" key={key}>
               <img src={formatImage(key)} /> {formatKey(key)} •{' '}
               {!key.includes('ctr') && !key.includes('roas') && '$'}
-              {data.total[key]}
+              {formatNumber(data.total[key])}
               {key.includes('ctr') && '%'}
               <span
                 className="tw-ticker-change"
@@ -119,7 +132,7 @@ function App() {
                     className={'tw-chevron ' + (data.compression[key] >= 0 ? 'top' : 'bottom')}
                   ></span>
                 </span>
-                {data.compression[key].replace('.00', '')}%
+                {formatNumber(data.compression[key])}%
               </span>
               &nbsp;
             </p>
